@@ -27,5 +27,8 @@ public class Professor extends Leitor{
         this.disciplina = disciplina;
     }
 
-    
+    @Override
+    public String toString() {
+        return this.nome;
+    }    
 }

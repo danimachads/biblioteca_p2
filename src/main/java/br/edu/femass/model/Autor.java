@@ -46,4 +46,8 @@ public class Autor {
     public void setNacionalidade(String nacionalidade) {
         this.nacionalidade = nacionalidade;
     }
+
+    public String toString() {
+        return this.nome;
+    }
 }

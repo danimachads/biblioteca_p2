@@ -26,5 +26,9 @@ public class Aluno extends Leitor {
         this.matricula = matricula;
     }
 
+    @Override
+    public String toString() {
+        return this.nome;
+    }
     
 }

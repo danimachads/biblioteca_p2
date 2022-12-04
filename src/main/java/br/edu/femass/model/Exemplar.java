@@ -36,4 +36,16 @@ public class Exemplar {
         return id;
     }
 
+    public Livro getLivro() {
+        return livro;
+    }
+
+    public void setLivro(Livro livro) {
+        this.livro = livro;
+    }
+
+    @Override
+    public String toString() {
+        return "Exemplar" + this.getLivro();
+    }
 }

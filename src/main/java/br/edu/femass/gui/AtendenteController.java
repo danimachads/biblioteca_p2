@@ -42,12 +42,34 @@ public class AtendenteController implements Initializable {
 
     @FXML
     private void CadProfessorClick(ActionEvent event) {
-        
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/SceneProfessor.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            scene.getRoot().setStyle("-fx-font-family: 'serif'");
+            Stage stage = new Stage();
+            stage.setTitle("Professor");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @FXML
     private void EmprestimoClick(ActionEvent event) {
-        
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/SceneEmprestimo.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            scene.getRoot().setStyle("-fx-font-family: 'serif'");
+            Stage stage = new Stage();
+            stage.setTitle("Emprestimo");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @FXML

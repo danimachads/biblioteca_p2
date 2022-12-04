@@ -46,6 +46,9 @@ public class LivroController implements Initializable {
 
     @FXML
     private ListView<Livro> lstLivro;
+
+    @FXML
+    private ListView<Autor> lstAutor;
     
     private DaoLivro daoLivro = new DaoLivro();
 
@@ -57,9 +60,9 @@ public class LivroController implements Initializable {
 
     @FXML
     private void SalvarClick(ActionEvent event) {
-      Autor autor = comboAutor.getSelectionModel().getSelectedItem();
+      //Autor autor = comboAutor.getSelectionModel().getSelectedItem();
       livro.setTitulo(txtTituloLivro.getText());
-      livro.setAutor(autor);
+      livro.setAutor(comboAutor.getSelectionModel().getSelectedItem());
       if(incluindo) {
         daoLivro.inserir(livro);
       }
@@ -67,16 +70,18 @@ public class LivroController implements Initializable {
         daoLivro.alterar(livro);
       }
       preencherLista();
+      preencherCombo();
       editar(false);
     }
 
     @FXML
     private void IncluirClick(ActionEvent event) {
       editar(true);
+      preencherCombo();
       incluindo = true;
       livro = new Livro();
       txtTituloLivro.setText("");
-      comboAutor.setValue(null);
+      //comboAutor.setValue(null);
       txtTituloLivro.requestFocus();
     }
 
@@ -84,6 +89,7 @@ public class LivroController implements Initializable {
     private void AlterarClick(ActionEvent event) {
       editar(true);
       incluindo = false;
+      preencherCombo();
     }
 
     @FXML
@@ -133,14 +139,17 @@ public class LivroController implements Initializable {
       List<Livro> livros = daoLivro.buscar();
       ObservableList<Livro> data = FXCollections.observableArrayList(livros);
       lstLivro.setItems(data);
+    }
 
+    private void preencherCombo() {
       List<Autor> autores = daoAutor.buscar();
-      ObservableList<Autor> data2 = FXCollections.observableArrayList(autores);
-      comboAutor.setItems(data2);
+      ObservableList<Autor> data = FXCollections.observableArrayList(autores);
+      comboAutor.setItems(data);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       preencherLista();
+      preencherCombo();
     }    
 }

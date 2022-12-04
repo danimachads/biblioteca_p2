@@ -73,6 +73,7 @@ public class AutorController implements Initializable {
       txtSobreNomeAutor.setText("");
       txtNacionalidadeAutor.setText("");
       txtNomeAutor.requestFocus();
+      preencherLista();
     }
 
     @FXML

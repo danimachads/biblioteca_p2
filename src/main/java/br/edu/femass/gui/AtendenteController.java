@@ -28,12 +28,12 @@ public class AtendenteController implements Initializable {
     private void CadAlunoClick(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/SceneAluno.fxml"));
-            Scene scenealuno = new Scene(root);
-            scenealuno.getStylesheets().add("/styles/Styles.css");
-            scenealuno.getRoot().setStyle("-fx-font-family: 'serif'");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            scene.getRoot().setStyle("-fx-font-family: 'serif'");
             Stage stage = new Stage();
             stage.setTitle("Cadastro de Aluno");
-            stage.setScene(scenealuno);
+            stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
             System.out.println(e.getMessage());

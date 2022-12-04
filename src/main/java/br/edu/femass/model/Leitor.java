@@ -3,16 +3,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Leitor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigo;    
-    private String nome;
-    private String endereco;
-    private String telefone;
-    private Integer prazoMaximoDevolucao;
+    protected Long codigo;    
+    protected String nome;
+    protected String endereco;
+    protected String telefone;
+    protected Integer prazoMaximoDevolucao;
 
     public Leitor(Long codigo, String nome, String endereco, String telefone, Integer prazoMaximoDevolucao) {
         this.codigo = codigo;

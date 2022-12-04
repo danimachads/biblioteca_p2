@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Livro {
@@ -12,6 +13,7 @@ public class Livro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;  //codigo
     private String titulo;
+    @ManyToOne
     private Autor autor;
     
     public Livro(String titulo, Autor autor) {

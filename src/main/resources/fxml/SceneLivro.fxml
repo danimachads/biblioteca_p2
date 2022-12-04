@@ -30,7 +30,7 @@
       <Button fx:id="buttonIncluir" layoutX="48.0" layoutY="398.0" mnemonicParsing="false" onAction="#IncluirClick" prefHeight="32.0" prefWidth="59.0" text="Incluir" />
       <Button fx:id="buttonAlterar" layoutX="133.0" layoutY="398.0" mnemonicParsing="false" onAction="#AlterarClick" prefHeight="32.0" prefWidth="59.0" text="Alterar" />
       <Button fx:id="buttonExcluir" layoutX="218.0" layoutY="398.0" mnemonicParsing="false" onAction="#ExcluirClick" prefHeight="32.0" prefWidth="59.0" text="Excluir" />
-      <ComboBox fx:id="comboAutor" disable="true" layoutX="398.0" layoutY="128.0" onAction="#ComboAutorClick" prefWidth="150.0" />
+      <ComboBox fx:id="comboAutor" disable="true" layoutX="398.0" layoutY="128.0" prefWidth="150.0" />
       <Label fx:id="labelAutorLivro" layoutX="343.0" layoutY="132.0" prefHeight="17.0" prefWidth="50.0" text="Autor:" />
    </children>
 </Pane>

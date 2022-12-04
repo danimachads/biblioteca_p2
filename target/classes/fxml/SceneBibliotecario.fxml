@@ -12,7 +12,7 @@
             <Font name="Calibri" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="labelMenuBibliotecario" alignment="CENTER" layoutX="153.0" layoutY="40.0" prefHeight="22.0" prefWidth="171.0" text="Menu Atendente" textAlignment="CENTER">
+      <Label fx:id="labelMenuBibliotecario" alignment="CENTER" layoutX="153.0" layoutY="40.0" prefHeight="22.0" prefWidth="171.0" text="Menu Bibliotecário" textAlignment="CENTER">
          <font>
             <Font name="Calibri Light" size="18.0" />
          </font>

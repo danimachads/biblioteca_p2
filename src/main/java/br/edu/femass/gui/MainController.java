@@ -25,12 +25,12 @@ public class MainController implements Initializable {
     private void AtendenteClick(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/SceneAtendente.fxml"));
-            Scene sceneatendente = new Scene(root);
-            sceneatendente.getStylesheets().add("/styles/Styles.css");
-            sceneatendente.getRoot().setStyle("-fx-font-family: 'serif'");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            scene.getRoot().setStyle("-fx-font-family: 'serif'");
             Stage stage = new Stage();
             stage.setTitle("Menu Atendente");
-            stage.setScene(sceneatendente);
+            stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -41,12 +41,12 @@ public class MainController implements Initializable {
     private void BibliotecarioClick(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/SceneBibliotecario.fxml"));
-            Scene scenebibliotecario = new Scene(root);
-            scenebibliotecario.getStylesheets().add("/styles/Styles.css");
-            scenebibliotecario.getRoot().setStyle("-fx-font-family: 'serif'");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            scene.getRoot().setStyle("-fx-font-family: 'serif'");
             Stage stage = new Stage();
             stage.setTitle("Menu Bibliotecário");
-            stage.setScene(scenebibliotecario);
+            stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
             System.out.println(e.getMessage());

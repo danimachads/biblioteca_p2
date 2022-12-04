@@ -12,9 +12,11 @@ public class Livro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;  //codigo
     private String titulo;
+    private Autor autor;
     
-    public Livro(String titulo) {
+    public Livro(String titulo, Autor autor) {
         this.titulo = titulo;
+        this.autor = autor;
         //this.codigo = codigo;
     }
 
@@ -32,5 +34,18 @@ public class Livro {
 
     public Long getId() {
         return id;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
+
+     public Autor getAutor() {
+        return autor;
+    }
+
+    @Override
+    public String toString() {
+        return this.titulo;
     }
 }

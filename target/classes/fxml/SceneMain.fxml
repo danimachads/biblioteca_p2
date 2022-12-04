@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.MainController">
+   <children>
+      <Button fx:id="buttonAtendente" alignment="CENTER" layoutX="159.0" layoutY="101.0" mnemonicParsing="false" onAction="#AtendenteClick" prefHeight="32.0" prefWidth="160.0" text="Atendente" textAlignment="CENTER" textFill="#171717">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelMenuAtendente" alignment="CENTER" layoutX="153.0" layoutY="40.0" prefHeight="22.0" prefWidth="171.0" text="Menu Biblioteca" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri Light" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonBibliotecario" alignment="CENTER" layoutX="159.0" layoutY="149.0" mnemonicParsing="false" onAction="#BibliotecarioClick" prefHeight="32.0" prefWidth="160.0" text="Bibliotecário" textAlignment="CENTER" textFill="#171717">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonSair" alignment="CENTER" layoutX="159.0" layoutY="195.0" mnemonicParsing="false" onAction="#SairClick" prefHeight="32.0" prefWidth="160.0" text="Sair" textAlignment="CENTER" textFill="#171717">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

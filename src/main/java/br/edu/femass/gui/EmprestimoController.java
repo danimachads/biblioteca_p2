@@ -3,7 +3,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import br.edu.femass.dao.DaoExemplar;
-import br.edu.femass.dao.DaoLivro;
+//import br.edu.femass.dao.DaoLivro;
 import br.edu.femass.model.Exemplar;
 import br.edu.femass.model.Livro;
 import javafx.collections.FXCollections;
@@ -38,7 +38,7 @@ public class EmprestimoController implements Initializable {
     @FXML
     private ListView<Exemplar> lstExemplar;
     
-    private DaoLivro daoLivro = new DaoLivro();
+    //private DaoLivro daoLivro = new DaoLivro();
 
     private DaoExemplar daoExemplar = new DaoExemplar();
 

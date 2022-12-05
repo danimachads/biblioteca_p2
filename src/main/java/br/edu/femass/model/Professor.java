@@ -29,6 +29,6 @@ public class Professor extends Leitor{
 
     @Override
     public String toString() {
-        return this.nome;
+        return "Aluno(a): " + this.nome + " | Disciplina: " + this.disciplina;
     }    
 }

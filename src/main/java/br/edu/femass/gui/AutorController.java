@@ -95,12 +95,12 @@ public class AutorController implements Initializable {
     }
 
     @FXML
-    private void lstAutores_KeyPressed(KeyEvent event) {
+    private void lstAutor_KeyPressed(KeyEvent event) {
       exibirDados();
     }
 
     @FXML
-    private void lstAutores_MouseClicked(MouseEvent event) {
+    private void lstAutor_MouseClicked(MouseEvent event) {
       exibirDados();
     }
 

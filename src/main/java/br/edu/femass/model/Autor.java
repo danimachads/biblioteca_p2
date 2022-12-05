@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    private Long id;
     private String nome;
     private String sobrenome;
     private String nacionalidade;
@@ -47,7 +47,8 @@ public class Autor {
         this.nacionalidade = nacionalidade;
     }
 
+    @Override
     public String toString() {
-        return this.nome;
+        return "Autor(a): " + nome + " " + sobrenome + ", nacionalidade " + nacionalidade + ".";
     }
 }

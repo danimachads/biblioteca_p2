@@ -1,8 +1,7 @@
 package br.edu.femass.gui;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import br.edu.femass.model.Aluno;
+//import br.edu.femass.model.Aluno;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

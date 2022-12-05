@@ -11,7 +11,7 @@ public class Livro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  //codigo
+    private Long id;  
     private String titulo;
     @ManyToOne
     private Autor autor;
@@ -48,6 +48,6 @@ public class Livro {
 
     @Override
     public String toString() {
-        return this.titulo;
+        return "Livro: " + titulo + " " + autor + ".";
     }
 }

@@ -15,9 +15,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class ProfessorController implements Initializable {
-    
-    @FXML
-    private Button txtCodigoProfessor;
 
     @FXML
     private Button txtNomeProfessor;

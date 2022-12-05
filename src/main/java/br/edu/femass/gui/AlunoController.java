@@ -17,9 +17,6 @@ import javafx.scene.input.MouseEvent;
 public class AlunoController implements Initializable {
     
     @FXML
-    private Button txtCodigoAluno;
-
-    @FXML
     private Button txtNomeAluno;
 
     @FXML

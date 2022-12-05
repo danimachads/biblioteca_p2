@@ -13,7 +13,7 @@
             <Font name="Calibri" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="labelCadastroLeitorAluno" alignment="CENTER" layoutX="368.0" layoutY="14.0" prefHeight="22.0" prefWidth="206.0" text="Cadastro de Leitor - Aluno" textAlignment="CENTER">
+      <Label fx:id="labelCadastroLeitorAluno" alignment="CENTER" layoutX="362.0" layoutY="41.0" prefHeight="22.0" prefWidth="206.0" text="Cadastro de Leitor - Aluno" textAlignment="CENTER">
          <font>
             <Font name="Calibri Light" size="18.0" />
          </font>
@@ -23,8 +23,6 @@
             <Font name="Calibri" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="labelCodigoAluno" layoutX="334.0" layoutY="57.0" prefHeight="17.0" prefWidth="50.0" text="Código:" />
-      <TextField fx:id="txtCodigoAluno" disable="true" layoutX="399.0" layoutY="53.0" prefHeight="25.0" prefWidth="78.0" />
       <TextField fx:id="txtNomeAluno" disable="true" layoutX="399.0" layoutY="89.0" />
       <Label fx:id="labelNomeAluno" layoutX="334.0" layoutY="93.0" prefHeight="17.0" prefWidth="50.0" text="Nome:" />
       <Button fx:id="buttonIncluir" layoutX="48.0" layoutY="398.0" mnemonicParsing="false" onAction="#IncluirClick" prefHeight="32.0" prefWidth="59.0" text="Incluir" />

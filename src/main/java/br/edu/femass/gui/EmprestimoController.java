@@ -2,9 +2,6 @@ package br.edu.femass.gui;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-
-import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
-
 import br.edu.femass.dao.DaoAluno;
 import br.edu.femass.dao.DaoEmprestimo;
 import br.edu.femass.dao.DaoExemplar;
@@ -12,7 +9,6 @@ import br.edu.femass.dao.DaoProfessor;
 import br.edu.femass.model.Aluno;
 import br.edu.femass.model.Emprestimo;
 import br.edu.femass.model.Exemplar;
-import br.edu.femass.model.Livro;
 import br.edu.femass.model.Professor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -70,12 +66,6 @@ public class EmprestimoController implements Initializable {
     private DaoExemplar daoExemplar = new DaoExemplar();
 
     private Emprestimo emprestimo;
-
-    private Exemplar exemplar;
-
-    private Aluno aluno;
-
-    private Professor professor;
 
     private Boolean incluindo;
   

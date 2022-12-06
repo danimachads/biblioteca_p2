@@ -136,8 +136,8 @@ public class AlunoController implements Initializable {
 
     private void preencherLista() {
         List<Aluno> alunos = dao.buscar();
-        ObservableList<Aluno> data = FXCollections.observableArrayList(alunos);
-        lstAluno.setItems(data);
+        ObservableList<Aluno> data1 = FXCollections.observableArrayList(alunos);
+        lstAluno.setItems(data1);
       }
 
     @Override

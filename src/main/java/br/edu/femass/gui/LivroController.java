@@ -23,8 +23,8 @@ public class LivroController implements Initializable {
     @FXML
     private TextField txtTituloLivro; 
 
-    //@FXML
-    // TextField txtCodigoLivro;
+    @FXML
+    TextField txtCodigoLivro;
 
     @FXML
     private Button buttonSalvar;

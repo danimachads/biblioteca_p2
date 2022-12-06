@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import br.edu.femass.dao.DaoAluno;
 import br.edu.femass.dao.DaoEmprestimo;
-import br.edu.femass.dao.DaoExemplar;
+//import br.edu.femass.dao.DaoExemplar;
 import br.edu.femass.dao.DaoProfessor;
 import br.edu.femass.model.Aluno;
 import br.edu.femass.model.Emprestimo;
@@ -63,7 +63,7 @@ public class EmprestimoController implements Initializable {
 
     private DaoProfessor daoProfessor = new DaoProfessor();
 
-    private DaoExemplar daoExemplar = new DaoExemplar();
+    //private DaoExemplar daoExemplar = new DaoExemplar();
 
     private Emprestimo emprestimo;
 

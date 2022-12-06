@@ -11,22 +11,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class ProfessorController implements Initializable {
 
     @FXML
-    private Button txtNomeProfessor;
+    private TextField txtNomeProfessor;
 
     @FXML
-    private Button txtEnderecoProfessor;
+    private TextField txtEnderecoProfessor;
 
     @FXML
-    private Button txtTelefoneProfessor;
+    private TextField txtTelefoneProfessor;
 
     @FXML
-    private Button txtDisciplinaProfessor;
+    private TextField txtDisciplinaProfessor;
 
     @FXML
     private Button buttonSalvar;

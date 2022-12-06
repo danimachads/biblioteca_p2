@@ -23,7 +23,7 @@
             <Font name="Calibri" size="12.0" />
          </font>
       </Button>
-      <TextField fx:id="txtNomeAluno" disable="true" layoutX="399.0" layoutY="89.0" />
+     <TextField fx:id="txtNomeAluno" disable="true" layoutX="399.0" layoutY="89.0" />
       <Label fx:id="labelNomeAluno" layoutX="334.0" layoutY="93.0" prefHeight="17.0" prefWidth="50.0" text="Nome:" />
       <Button fx:id="buttonIncluir" layoutX="48.0" layoutY="398.0" mnemonicParsing="false" onAction="#IncluirClick" prefHeight="32.0" prefWidth="59.0" text="Incluir" />
       <Button fx:id="buttonAlterar" layoutX="133.0" layoutY="398.0" mnemonicParsing="false" onAction="#AlterarClick" prefHeight="32.0" prefWidth="59.0" text="Alterar" />

@@ -11,22 +11,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class AlunoController implements Initializable {
     
     @FXML
-    private Button txtNomeAluno;
+    private TextField txtNomeAluno;
 
     @FXML
-    private Button txtEnderecoAluno;
+    private TextField txtEnderecoAluno;
 
     @FXML
-    private Button txtTelefoneAluno;
+    private TextField txtTelefoneAluno;
 
     @FXML
-    private Button txtMatriculaAluno;
+    private TextField txtMatriculaAluno;
 
     @FXML
     private Button buttonSalvar;

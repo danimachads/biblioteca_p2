@@ -7,42 +7,46 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.AlunoController">
    <children>
-      <ListView fx:id="lstEmprestimos" layoutX="14.0" layoutY="14.0" prefHeight="370.0" prefWidth="295.0" />
-      <Button fx:id="buttonSalvarA" alignment="CENTER" disable="true" layoutX="480.0" layoutY="152.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="72.0" text="Salvar" textAlignment="CENTER" textFill="#171717">
+      <Button fx:id="buttonSalvarAluno" alignment="CENTER" disable="true" layoutX="127.0" layoutY="157.0" mnemonicParsing="false" onAction="#SalvarEmprestimoAlunoClick" prefHeight="32.0" prefWidth="72.0" text="Salvar" textAlignment="CENTER" textFill="#171717">
          <font>
             <Font name="Calibri" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="labelEmprestimoAluno" alignment="CENTER" layoutX="362.0" layoutY="25.0" prefHeight="22.0" prefWidth="206.0" text="Empréstimo - Aluno" textAlignment="CENTER">
+      <Label fx:id="labelEmprestimoAluno" alignment="CENTER" layoutX="24.0" layoutY="30.0" prefHeight="22.0" prefWidth="206.0" text="Empréstimo - Aluno" textAlignment="CENTER">
          <font>
             <Font name="Calibri Light" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="labelNomeAluno" layoutX="337.0" layoutY="68.0" prefHeight="17.0" prefWidth="50.0" text="Aluno:" />
-      <Button fx:id="buttonIncluir" layoutX="48.0" layoutY="398.0" mnemonicParsing="false" onAction="#IncluirClick" prefHeight="32.0" prefWidth="59.0" text="Incluir" />
-      <Button fx:id="buttonAlterar" layoutX="133.0" layoutY="398.0" mnemonicParsing="false" onAction="#AlterarClick" prefHeight="32.0" prefWidth="59.0" text="Alterar" />
-      <Button fx:id="buttonExcluir" layoutX="218.0" layoutY="398.0" mnemonicParsing="false" onAction="#ExcluirClick" prefHeight="32.0" prefWidth="59.0" text="Excluir" />
-      <Label fx:id="labelExemplarA" layoutX="333.0" layoutY="111.0" prefHeight="17.0" prefWidth="59.0" text="Exemplar:" />
-      <ComboBox fx:id="comboAluno" layoutX="402.0" layoutY="64.0" prefWidth="150.0" />
-      <ComboBox fx:id="comboExemplarA" layoutX="402.0" layoutY="107.0" prefWidth="150.0" />
-      <Label fx:id="labelNomeAluno1" layoutX="333.0" layoutY="264.0" prefHeight="17.0" prefWidth="59.0" text="Professor:" />
-      <Label fx:id="labelEmprestimoProfessor" alignment="CENTER" layoutX="356.0" layoutY="217.0" prefHeight="22.0" prefWidth="206.0" text="Empréstimo - Professor" textAlignment="CENTER">
+      <Label fx:id="labelNomeAluno" layoutX="23.0" layoutY="68.0" prefHeight="17.0" prefWidth="50.0" text="Aluno:" />
+      <Label fx:id="labelExemplarA" layoutX="19.0" layoutY="111.0" prefHeight="17.0" prefWidth="59.0" text="Exemplar:" />
+      <ComboBox fx:id="comboAluno" layoutX="88.0" layoutY="64.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboExemplarAluno" layoutX="88.0" layoutY="107.0" prefWidth="150.0" />
+      <Label fx:id="labelNomeAluno1" layoutX="334.0" layoutY="68.0" prefHeight="17.0" prefWidth="59.0" text="Professor:" />
+      <Label fx:id="labelEmprestimoProfessor" alignment="CENTER" layoutX="363.0" layoutY="30.0" prefHeight="22.0" prefWidth="206.0" text="Empréstimo - Professor" textAlignment="CENTER">
          <font>
             <Font name="Calibri Light" size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboProfessor" layoutX="402.0" layoutY="260.0" prefWidth="150.0" />
-      <Label fx:id="labelExemplarP" layoutX="333.0" layoutY="312.0" prefHeight="17.0" prefWidth="59.0" text="Exemplar:" />
-      <ComboBox fx:id="comboExemplarP" layoutX="402.0" layoutY="308.0" prefWidth="150.0" />
-      <Button fx:id="buttonSalvarP" alignment="CENTER" disable="true" layoutX="387.0" layoutY="352.0" mnemonicParsing="false" onAction="#SalvarClick" prefHeight="32.0" prefWidth="72.0" text="Salvar" textAlignment="CENTER" textFill="#171717">
+      <ComboBox fx:id="comboProfessor" layoutX="423.0" layoutY="64.0" prefWidth="150.0" />
+      <Label fx:id="labelExemplarP" layoutX="334.0" layoutY="111.0" prefHeight="17.0" prefWidth="59.0" text="Exemplar:" />
+      <ComboBox fx:id="comboExemplarProfessor" layoutX="423.0" layoutY="107.0" prefWidth="150.0" />
+      <Button fx:id="buttonSalvarPofessor" alignment="CENTER" disable="true" layoutX="462.0" layoutY="157.0" mnemonicParsing="false" onAction="#SalvarEmrpestimoProfessorClick" prefHeight="32.0" prefWidth="72.0" text="Salvar" textAlignment="CENTER" textFill="#171717">
          <font>
             <Font name="Calibri" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="buttonCancelar" alignment="CENTER" layoutX="477.0" layoutY="352.0" mnemonicParsing="false" onAction="#CancelarClick" prefHeight="32.0" prefWidth="72.0" text="Cancelar" textAlignment="CENTER" textFill="#171717">
+      <Button fx:id="buttonSair" alignment="CENTER" layoutX="498.0" layoutY="409.0" mnemonicParsing="false" onAction="#SairClick" prefHeight="32.0" prefWidth="72.0" text="Sair" textAlignment="CENTER" textFill="#171717">
          <font>
             <Font name="Calibri" size="12.0" />
          </font>
       </Button>
+      <TableView fx:id="tableEmprestimo" layoutX="24.0" layoutY="205.0" prefHeight="190.0" prefWidth="550.0">
+        <columns>
+          <TableColumn fx:id="colunaExemplar" prefWidth="163.0" text="Exemplar" />
+          <TableColumn fx:id="colunaLeitor" prefWidth="131.0" text="Leitor" />
+            <TableColumn fx:id="colunaDataEmp" prefWidth="130.0" text="Data Empréstimo" />
+            <TableColumn fx:id="colunaPrevisaoDevolucao" prefWidth="125.0" text="Previsão Devolução" />
+        </columns>
+      </TableView>
    </children>
 </Pane>

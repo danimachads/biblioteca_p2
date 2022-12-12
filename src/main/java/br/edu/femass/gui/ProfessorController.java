@@ -45,7 +45,7 @@ public class ProfessorController implements Initializable {
     private Button buttonExcluir;
 
     @FXML
-    private ListView<Professor> lstProfessor;
+    private ListView<Professor> lstProfessores;
 
     private DaoProfessor daoProfessor = new DaoProfessor();
 
@@ -110,7 +110,7 @@ public class ProfessorController implements Initializable {
     }
 
     private void editar(boolean habilitar) {
-        lstProfessor.setDisable(habilitar);
+        lstProfessores.setDisable(habilitar);
         txtNomeProfessor.setDisable(!habilitar);
         txtEnderecoProfessor.setDisable(!habilitar);
         txtTelefoneProfessor.setDisable(!habilitar);
@@ -122,7 +122,7 @@ public class ProfessorController implements Initializable {
     }
 
     private void exibirDados() {
-        this.professor = lstProfessor.getSelectionModel().getSelectedItem();
+        this.professor = lstProfessores.getSelectionModel().getSelectedItem();
   
         if (professor == null) {
           return;
@@ -137,7 +137,7 @@ public class ProfessorController implements Initializable {
     private void preencherLista() {
         List<Professor> professores = daoProfessor.buscar();
         ObservableList<Professor> data = FXCollections.observableArrayList(professores);
-        lstProfessor.setItems(data);
+        lstProfessores.setItems(data);
       }
 
     @Override

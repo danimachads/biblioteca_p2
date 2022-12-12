@@ -45,7 +45,7 @@ public class AlunoController implements Initializable {
     private Button buttonExcluir;
 
     @FXML
-    private ListView<Aluno> lstAluno;
+    private ListView<Aluno> lstAlunos;
 
     private DaoAluno dao = new DaoAluno();
 
@@ -110,7 +110,7 @@ public class AlunoController implements Initializable {
     }
 
     private void editar(boolean habilitar) {
-        lstAluno.setDisable(habilitar);
+        lstAlunos.setDisable(habilitar);
         txtNomeAluno.setDisable(!habilitar);
         txtEnderecoAluno.setDisable(!habilitar);
         txtTelefoneAluno.setDisable(!habilitar);
@@ -122,7 +122,7 @@ public class AlunoController implements Initializable {
     }
 
     private void exibirDados() {
-        this.aluno = lstAluno.getSelectionModel().getSelectedItem();
+        this.aluno = lstAlunos.getSelectionModel().getSelectedItem();
   
         if (aluno == null) {
           return;
@@ -137,7 +137,7 @@ public class AlunoController implements Initializable {
     private void preencherLista() {
         List<Aluno> alunos = dao.buscar();
         ObservableList<Aluno> data1 = FXCollections.observableArrayList(alunos);
-        lstAluno.setItems(data1);
+        lstAlunos.setItems(data1);
       }
 
     @Override

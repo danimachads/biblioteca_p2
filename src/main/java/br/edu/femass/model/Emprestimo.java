@@ -1,5 +1,7 @@
 package br.edu.femass.model;
 import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,19 +13,19 @@ public class Emprestimo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDate datEmprestimo;
+    private LocalDate dataEmprestimo;
     private LocalDate dataPrevistaDevolucao;
     private LocalDate dataDevolucao;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Exemplar exemplar;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Leitor leitor;
 
     public Emprestimo(Exemplar exemplar, Leitor leitor) {
         this.exemplar = exemplar;
         this.leitor = leitor;
         this.dataPrevistaDevolucao=LocalDate.now().plusDays(leitor.getPrazoMaximoDevolucao());
-        this.datEmprestimo=LocalDate.now();
+        this.dataEmprestimo=LocalDate.now();
     }
 
     public Emprestimo() {
@@ -31,11 +33,11 @@ public class Emprestimo {
     }
 
     public LocalDate getDatEmprestimo() {
-        return datEmprestimo;
+        return dataEmprestimo;
     }
 
-    public void setDatEmprestimo(LocalDate datEmprestimo) {
-        this.datEmprestimo = datEmprestimo;
+    public void setDatEmprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
     }
 
     public LocalDate getDataPrevistaDevolucao() {
@@ -70,9 +72,9 @@ public class Emprestimo {
         this.leitor = leitor;
     }
 
-    public void setExemplar(Aluno selectedItem) {
+/*public void setExemplar(Aluno selectedItem) {
     }
 
     public void setExemplar(Professor selectedItem) {
-    }
+    }*/
 }

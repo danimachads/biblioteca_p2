@@ -1,5 +1,6 @@
 package br.edu.femass.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +14,7 @@ public class Livro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;  
     private String titulo;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Autor autor;
     
     public Livro(String titulo, Autor autor) {

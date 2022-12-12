@@ -5,15 +5,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.DiscriminatorColumn;
 import java.io.Serializable;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tipo", length = 1, discriminatorType = DiscriminatorType.STRING)
-@DiscriminatorValue("Leitor")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Leitor implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

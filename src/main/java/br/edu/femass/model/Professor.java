@@ -1,13 +1,8 @@
 package br.edu.femass.model;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.DiscriminatorValue;
 
 @Entity
-@DiscriminatorValue("Professor")
 public class Professor extends Leitor{
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     private String disciplina;
 

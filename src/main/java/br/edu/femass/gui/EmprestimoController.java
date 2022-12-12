@@ -1,14 +1,16 @@
 package br.edu.femass.gui;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 import br.edu.femass.dao.DaoAluno;
 import br.edu.femass.dao.DaoEmprestimo;
-//import br.edu.femass.dao.DaoExemplar;
+import br.edu.femass.dao.DaoExemplar;
 import br.edu.femass.dao.DaoProfessor;
 import br.edu.femass.model.Aluno;
 import br.edu.femass.model.Emprestimo;
 import br.edu.femass.model.Exemplar;
+import br.edu.femass.model.Leitor;
 import br.edu.femass.model.Professor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,158 +20,110 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
 
 public class EmprestimoController implements Initializable {
-  
-    @FXML
-    private Button buttonSalvarA;
 
     @FXML
-    private Button buttonCancelarA;
-
-    @FXML
-    private Button buttonSalvarP;
-
-    @FXML
-    private Button buttonCancelarP;
-
-    @FXML
-    private Button buttonIncluir;
-
-    @FXML
-    private Button buttonAlterar;
-   
-    @FXML
-    private Button buttonExcluir;
-
-    @FXML
-    private ListView<Emprestimo> lstEmprestimo;
+    private Button buttonSair;
 
     @FXML
     private ComboBox<Aluno> comboAluno;
 
     @FXML
-    private ComboBox<Exemplar> comboExemplarA;
+    private ComboBox<Exemplar> comboExemplarAluno;
+
+    @FXML
+    private Button buttonSalvarAluno;
 
     @FXML
     private ComboBox<Professor> comboProfessor;
 
     @FXML
-    private ComboBox<Exemplar> comboExemplarP;
+    private ComboBox<Exemplar> comboExemplarProfessor;
+
+    @FXML
+    private Button buttonSalvarProfessor;
+
+    @FXML
+    private TableView<Emprestimo> tableEmprestimo = new TableView<>();
+
+    @FXML
+    private TableColumn<Emprestimo, String> colunaExemplar;
+
+    @FXML
+    private TableColumn<Emprestimo, String> colunaLeitor;
+    
+    @FXML
+    private TableColumn<Emprestimo, LocalDate> colunaDataEmprestimo; 
+
+    @FXML
+    private TableColumn<Emprestimo, LocalDate> colunaPrevisaoDevolucao;
 
     private DaoEmprestimo daoEmprestimo = new DaoEmprestimo();
-
+    private Emprestimo emprestimo;
+    
     private DaoAluno daoAluno = new DaoAluno();
+    private Aluno aluno;
 
     private DaoProfessor daoProfessor = new DaoProfessor();
+    private Professor professor;
 
-    //private DaoExemplar daoExemplar = new DaoExemplar();
-
-    private Emprestimo emprestimo;
-
-    private Boolean incluindo;
-  
-
-    /*@FXML
-    private void SalvarAClick(ActionEvent event) {
-      emprestimo.setLeitor(comboAluno.getSelectionModel().getSelectedItem());
-      emprestimo.setExemplar(comboAluno.getSelectionModel().getSelectedItem());
-      if(incluindo) {
-        daoEmprestimo.inserir(emprestimo);
-      }
-      else {
-        daoEmprestimo.alterar(emprestimo);
-      }
-      preencherLista();
-      preencherComboA();
-      editar(false);
-    }*/
+    private DaoExemplar DaoExemplar = new DaoExemplar();
+    private Exemplar exemplar;
 
     @FXML
-    private void SalvarClick(ActionEvent event) {
-      emprestimo.setLeitor(comboAluno.getSelectionModel().getSelectedItem());
-      emprestimo.setExemplar(comboAluno.getSelectionModel().getSelectedItem());
-      
-      emprestimo.setLeitor(comboProfessor.getSelectionModel().getSelectedItem());
-      emprestimo.setExemplar(comboProfessor.getSelectionModel().getSelectedItem());
-      if(incluindo) {
-        daoEmprestimo.inserir(emprestimo);
-      }
-      else {
-        daoEmprestimo.alterar(emprestimo);
-      }
-      preencherLista();
-      preencherComboP();
-      preencherComboA();
-      editar(false);
+    private void SalvarEmprestimoAlunoClick(ActionEvent event) {
+      aluno = comboAluno.getSelectionModel().getSelectedItem();
+      exemplar = comboExemplarAluno.getSelectionModel().getSelectedItem();
+      emprestimo = new Emprestimo(exemplar, aluno);
+      daoEmprestimo.inserir(emprestimo);
+      preencherTabela();
+      preencherComboBox();
     }
 
     @FXML
-    private void IncluirClick(ActionEvent event) {
-      editar(true);
-      preencherComboA();
-      preencherComboP();
-      incluindo = true;
-      emprestimo = new Emprestimo();
-      comboAluno.setValue(null);
-      comboExemplarA.setValue(null);
-      comboProfessor.setValue(null);
-      comboExemplarP.setValue(null);
+    private void SalvarEmprestimoProfessorClick(ActionEvent event) {
+      professor = comboProfessor.getSelectionModel().getSelectedItem();
+      exemplar = comboExemplarProfessor.getSelectionModel().getSelectedItem();
+      emprestimo = new Emprestimo(exemplar, professor);
+      daoEmprestimo.inserir(emprestimo);
+      preencherTabela();
+      preencherComboBox();
     }
 
     @FXML
-    private void AlterarClick(ActionEvent event) {
-      editar(true);
-      incluindo = false;
-      preencherComboA();
-      preencherComboP();
+    private void preencherComboBox() {
+      List<Aluno> alunos = daoAluno.buscar();
+      ObservableList<Aluno> dataAluno = FXCollections.observableArrayList(alunos);
+      comboAluno.setItems(dataAluno);
+      List<Professor> professores = daoProfessor.buscar();
+      ObservableList<Professor> dataProfessor = FXCollections.observableArrayList(professores);
+      comboProfessor.setItems(dataProfessor);
     }
 
-    @FXML
-    private void ExcluirClick(ActionEvent event) {
-      daoEmprestimo.apagar(emprestimo);
-      preencherLista();
-      editar(false);
-    }
-
-    @FXML
-    private void CancelarClick(ActionEvent event) {
-      System.exit(0);
-    }
-
-    private void editar(boolean habilitar) {
-      lstEmprestimo.setDisable(habilitar);
-      comboAluno.setDisable(!habilitar);
-      comboExemplarA.setDisable(!habilitar);
-      comboProfessor.setDisable(!habilitar);
-      comboExemplarP.setDisable(!habilitar);
-      buttonSalvarA.setDisable(!habilitar);
-      buttonSalvarP.setDisable(!habilitar);
-      buttonAlterar.setDisable(habilitar);
-      buttonIncluir.setDisable(habilitar);
-      buttonExcluir.setDisable(habilitar);
-    }
-
-    private void preencherLista() {
+    private void preencherTabela() {
       List<Emprestimo> emprestimos = daoEmprestimo.buscar();
       ObservableList<Emprestimo> data = FXCollections.observableArrayList(emprestimos);
-      lstEmprestimo.setItems(data);
+      tableEmprestimo.setItems(data);
     }
 
-    private void preencherComboA() {
-      List<Aluno> alunos = daoAluno.buscar();
-      ObservableList<Aluno> data = FXCollections.observableArrayList(alunos);
-      comboAluno.setItems(data);
-    }
-
-    private void preencherComboP() {
-      List<Professor> professores = daoProfessor.buscar();
-      ObservableList<Professor> data = FXCollections.observableArrayList(professores);
-      comboProfessor.setItems(data);
+    @FXML
+    private void SairClick(ActionEvent event) {
+      System.exit(0);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      
-    }    
-}
+    
+      colunaExemplar.setCellValueFactory(new PropertyValueFactory<Exemplar, String>("exemplar"));
+      colunaLeitor.setCellValueFactory(new PropertyValueFactory<Leitor, String>(property:"leitor"));
+      colunaDataEmprestimo.setCellValueFactory(new PropertyValueFactory<Emprestimo, LocalDate>(property:"dataEmprestimo"));
+      colunaPrevisaoDevolucao.setCellValueFactory(new PropertyValueFactory<Emprestimo, LocalDate>(property:"Previsao Devolucao"));
+      preencherTabela();
+      preencherComboBox();
+    }  
+} 

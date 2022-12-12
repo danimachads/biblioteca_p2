@@ -44,7 +44,7 @@
         <columns>
           <TableColumn fx:id="colunaExemplar" prefWidth="163.0" text="Exemplar" />
           <TableColumn fx:id="colunaLeitor" prefWidth="131.0" text="Leitor" />
-            <TableColumn fx:id="colunaDataEmp" prefWidth="130.0" text="Data Empréstimo" />
+            <TableColumn fx:id="colunaDataEmprestimo" prefWidth="130.0" text="Data Empréstimo" />
             <TableColumn fx:id="colunaPrevisaoDevolucao" prefWidth="125.0" text="Previsão Devolução" />
         </columns>
       </TableView>

@@ -21,7 +21,7 @@
       <Label fx:id="labelExemplarA" layoutX="19.0" layoutY="111.0" prefHeight="17.0" prefWidth="59.0" text="Exemplar:" />
       <ComboBox fx:id="comboAluno" layoutX="88.0" layoutY="64.0" prefWidth="150.0" />
       <ComboBox fx:id="comboExemplarAluno" layoutX="88.0" layoutY="107.0" prefWidth="150.0" />
-      <Label fx:id="labelNomeAluno1" layoutX="334.0" layoutY="68.0" prefHeight="17.0" prefWidth="59.0" text="Professor:" />
+      <Label fx:id="labelNomeProfessor" layoutX="334.0" layoutY="68.0" prefHeight="17.0" prefWidth="59.0" text="Professor:" />
       <Label fx:id="labelEmprestimoProfessor" alignment="CENTER" layoutX="363.0" layoutY="30.0" prefHeight="22.0" prefWidth="206.0" text="Empréstimo - Professor" textAlignment="CENTER">
          <font>
             <Font name="Calibri Light" size="18.0" />

@@ -32,16 +32,16 @@ public class Emprestimo {
 
     }
 
-    public LocalDate getDatEmprestimo() {
+    public LocalDate getDataEmprestimo() {
         return dataEmprestimo;
     }
 
-    public void setDatEmprestimo(LocalDate dataEmprestimo) {
-        this.dataEmprestimo = dataEmprestimo;
+    public LocalDate setDataEmprestimo(LocalDate dataEmprestimo) {
+        return this.dataEmprestimo = dataEmprestimo;
     }
 
     public LocalDate getDataPrevistaDevolucao() {
-        return dataPrevistaDevolucao;
+        return dataEmprestimo;
     }
 
     public void setDataPrevistaDevolucao(LocalDate dataPrevistaDevolucao) {

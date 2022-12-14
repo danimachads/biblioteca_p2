@@ -1,4 +1,5 @@
 package br.edu.femass.model;
+import java.sql.Date;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,21 +15,31 @@ public class Exemplar {
     private Long id;
     @ManyToOne
     private Livro livro;
-    private LocalDate dataAquisicao;
+    private String numero;
+    private Date dataAquisicao;
 
-    public Exemplar(LocalDate dataAquisicao) {
+    public Exemplar(String numero, Date dataAquisicao) {
         this.dataAquisicao = dataAquisicao;
+        this.numero = numero;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public Exemplar() {
 
     }
 
-    public LocalDate getDataAquisicao() {
+    public Date getDataAquisicao() {
         return dataAquisicao;
     }
 
-    public void setDataAquisicao(LocalDate dataAquisicao) {
+    public void setDataAquisicao(Date dataAquisicao) {
         this.dataAquisicao = dataAquisicao;
     }
 
@@ -46,6 +57,6 @@ public class Exemplar {
 
     @Override
     public String toString() {
-        return "Exemplar" + this.getLivro();
+        return "Exemplar" + this.getLivro().toString();
     }
 }

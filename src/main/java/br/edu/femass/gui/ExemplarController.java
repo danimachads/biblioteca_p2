@@ -1,5 +1,6 @@
 package br.edu.femass.gui;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 import br.edu.femass.dao.DaoExemplar;
@@ -13,12 +14,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class ExemplarController implements Initializable {
   
+    @FXML
+    private TextField txtNumeroExemplar;
+
+    @FXML
+    private DatePicker dateAquisicao;
+
     @FXML
     private Button buttonSalvar;
 
@@ -39,9 +48,6 @@ public class ExemplarController implements Initializable {
 
     @FXML
     private ListView<Exemplar> lstExemplar;
-
-    @FXML
-    private ListView<Livro> lstLivro;
     
     private DaoLivro daoLivro = new DaoLivro();
 
@@ -53,9 +59,15 @@ public class ExemplarController implements Initializable {
 
     private Boolean incluindo;
 
-    @FXML
-    private void SalvarClick(ActionEvent event) {
+      @FXML
+      private void SalvarClick(ActionEvent event) {
       exemplar.setLivro(comboLivro.getSelectionModel().getSelectedItem());
+      exemplar.setNumero(txtNumeroExemplar.getText().toString());
+      
+      LocalDate dataAquisicao = dateAquisicao.getValue();
+      java.sql.Date sqlDate = java.sql.Date.valueOf(dataAquisicao);
+      exemplar.setDataAquisicao(sqlDate);
+      
       if(incluindo) {
         daoExemplar.inserir(exemplar);
       }
@@ -107,6 +119,8 @@ public class ExemplarController implements Initializable {
 
     private void editar(boolean habilitar) {
       comboLivro.setDisable(!habilitar);
+      dateAquisicao.setDisable(!habilitar);
+      txtNumeroExemplar.setDisable(!habilitar);
       buttonSalvar.setDisable(!habilitar);
       buttonAlterar.setDisable(habilitar);
       buttonIncluir.setDisable(habilitar);
@@ -138,5 +152,6 @@ public class ExemplarController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
       preencherLista();
       preencherCombo();
+      dateAquisicao.setValue(LocalDate.now());
     }    
 }

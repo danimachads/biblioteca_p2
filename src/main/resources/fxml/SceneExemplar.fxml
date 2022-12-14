@@ -7,7 +7,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.ExemplarController">
    <children>
-      <ListView fx:id="lstExemplar" layoutX="14.0" layoutY="14.0" onKeyPressed="#lstLivros_KeyPressed" onMouseClicked="#lstLivros_MouseClicked" prefHeight="370.0" prefWidth="295.0" />
+      <ListView fx:id="lstExemplar" layoutX="14.0" layoutY="14.0" onKeyPressed="#lstExemplares_KeyPressed" onMouseClicked="#lstExemplares_MouseClicked" prefHeight="370.0" prefWidth="295.0" />
       <Button fx:id="buttonSalvar" alignment="CENTER" disable="true" layoutX="402.0" layoutY="166.0" mnemonicParsing="false" onAction="#SalvarClick" prefHeight="32.0" prefWidth="72.0" text="Salvar" textAlignment="CENTER" textFill="#171717">
          <font>
             <Font name="Calibri" size="12.0" />
@@ -23,12 +23,14 @@
             <Font name="Calibri" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="labelCodigoLivro" layoutX="343.0" layoutY="57.0" prefHeight="17.0" prefWidth="50.0" text="Código:" />
-      <TextField fx:id="txtCodigoLivro" disable="true" layoutX="399.0" layoutY="53.0" prefHeight="25.0" prefWidth="78.0" />
+      <Label fx:id="labelNumeroExemplar" layoutX="343.0" layoutY="57.0" prefHeight="17.0" prefWidth="50.0" text="Número:" />
+      <TextField fx:id="txtNumeroExemplar" disable="true" layoutX="447.0" layoutY="53.0" prefHeight="25.0" prefWidth="135.0" />
       <Button fx:id="buttonIncluir" layoutX="48.0" layoutY="398.0" mnemonicParsing="false" onAction="#IncluirClick" prefHeight="32.0" prefWidth="59.0" text="Incluir" />
       <Button fx:id="buttonAlterar" layoutX="133.0" layoutY="398.0" mnemonicParsing="false" onAction="#AlterarClick" prefHeight="32.0" prefWidth="59.0" text="Alterar" />
       <Button fx:id="buttonExcluir" layoutX="218.0" layoutY="398.0" mnemonicParsing="false" onAction="#ExcluirClick" prefHeight="32.0" prefWidth="59.0" text="Excluir" />
-      <ComboBox fx:id="comboLivro" disable="true" layoutX="399.0" layoutY="95.0" prefWidth="150.0" />
-      <Label fx:id="labelAutorLivro" layoutX="343.0" layoutY="99.0" prefHeight="17.0" prefWidth="50.0" text="Livro:" />
+      <ComboBox fx:id="comboLivro" disable="true" layoutX="446.0" layoutY="128.0" prefHeight="25.0" prefWidth="135.0" />
+      <Label fx:id="labelAutorLivro" layoutX="343.0" layoutY="132.0" prefHeight="17.0" prefWidth="50.0" text="Livro:" />
+      <Label fx:id="labelDataAquisicao" layoutX="343.0" layoutY="98.0" prefHeight="17.0" prefWidth="114.0" text="Data de aquisição:" />
+      <DatePicker fx:id="dateAquisicao" disable="true" layoutX="446.0" layoutY="94.0" prefHeight="22.0" prefWidth="135.0" />
    </children>
 </Pane>

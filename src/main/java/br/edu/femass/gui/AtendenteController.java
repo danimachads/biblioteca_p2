@@ -22,9 +22,6 @@ public class AtendenteController implements Initializable {
     private Button buttonEmprestimo;
 
     @FXML
-    private Button buttonDevolucao;
-
-    @FXML
     private void CadAlunoClick(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/SceneAluno.fxml"));
@@ -71,11 +68,6 @@ public class AtendenteController implements Initializable {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    @FXML
-    private void DevolucaoClick(ActionEvent event) {
-        
     }
 
     @Override

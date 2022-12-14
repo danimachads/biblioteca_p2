@@ -19,7 +19,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -29,6 +28,9 @@ public class EmprestimoController implements Initializable {
 
     @FXML
     private Button buttonSair;
+
+    @FXML
+    private Button buttonDevolver;
 
     @FXML
     private ComboBox<Aluno> comboAluno;
@@ -52,10 +54,10 @@ public class EmprestimoController implements Initializable {
     private TableView<Emprestimo> tableEmprestimo = new TableView<>();
 
     @FXML
-    private TableColumn<Emprestimo, String> colunaExemplar;
+    private TableColumn<Exemplar, String> colunaExemplar;
 
     @FXML
-    private TableColumn<Emprestimo, String> colunaLeitor;
+    private TableColumn<Leitor, String> colunaLeitor;
     
     @FXML
     private TableColumn<Emprestimo, LocalDate> colunaDataEmprestimo; 
@@ -96,6 +98,14 @@ public class EmprestimoController implements Initializable {
     }
 
     @FXML
+    private void DevolverEmprestimoClick(ActionEvent event) {
+      emprestimo = tableEmprestimo.getSelectionModel().getSelectedItem();
+      emprestimo.setDataDevolucao(LocalDate.now());
+      daoEmprestimo.alterar(emprestimo);
+      preencherTabela();
+  }
+
+    @FXML
     private void preencherComboBox() {
       List<Aluno> alunos = daoAluno.buscar();
       ObservableList<Aluno> dataAluno = FXCollections.observableArrayList(alunos);
@@ -118,12 +128,13 @@ public class EmprestimoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    
-      colunaExemplar.setCellValueFactory(new PropertyValueFactory<Exemplar, String>("exemplar"));
-      colunaLeitor.setCellValueFactory(new PropertyValueFactory<Leitor, String>(property:"leitor"));
-      colunaDataEmprestimo.setCellValueFactory(new PropertyValueFactory<Emprestimo, LocalDate>(property:"dataEmprestimo"));
-      colunaPrevisaoDevolucao.setCellValueFactory(new PropertyValueFactory<Emprestimo, LocalDate>(property:"Previsao Devolucao"));
       preencherTabela();
       preencherComboBox();
+      
+      colunaExemplar.setCellValueFactory(new PropertyValueFactory<Exemplar, String>("exemplar"));
+      colunaLeitor.setCellValueFactory(new PropertyValueFactory<Leitor, String>("leitor"));
+      colunaDataEmprestimo.setCellValueFactory(new PropertyValueFactory<Emprestimo, LocalDate>("dataEmprestimo"));
+      colunaPrevisaoDevolucao.setCellValueFactory(new PropertyValueFactory<Emprestimo, LocalDate>("dataPrevistaDevolucao"));
+      
     }  
 } 

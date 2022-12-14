@@ -20,7 +20,7 @@ public class BibliotecarioController implements Initializable {
     private Button buttonAutores;
 
     @FXML
-    private Button buttonListaLeitoresAtraso;
+    private Button buttonExemplares;
 
     @FXML
     private void LivrosClick(ActionEvent event) {
@@ -55,8 +55,19 @@ public class BibliotecarioController implements Initializable {
     }
 
     @FXML
-    private void ListaLeitoresAtrasoClick(ActionEvent event) {
-       
+    private void ExemplaresClick(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/SceneExemplar.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            scene.getRoot().setStyle("-fx-font-family: 'serif'");
+            Stage stage = new Stage();
+            stage.setTitle("Exemplar");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 

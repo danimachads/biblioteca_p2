@@ -41,7 +41,7 @@ public class Emprestimo {
     }
 
     public LocalDate getDataPrevistaDevolucao() {
-        return dataEmprestimo;
+        return dataPrevistaDevolucao;
     }
 
     public void setDataPrevistaDevolucao(LocalDate dataPrevistaDevolucao) {

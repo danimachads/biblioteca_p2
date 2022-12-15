@@ -69,13 +69,13 @@ public class EmprestimoController implements Initializable {
     private Emprestimo emprestimo;
     
     private DaoAluno daoAluno = new DaoAluno();
-    private Aluno aluno;
+    //private Aluno aluno;
 
     private DaoProfessor daoProfessor = new DaoProfessor();
-    private Professor professor;
+    //private Professor professor;
 
     private DaoExemplar daoExemplar = new DaoExemplar();
-    private Exemplar exemplar;
+    //private Exemplar exemplar;
 
     //private Leitor leitor;
 
@@ -85,6 +85,7 @@ public class EmprestimoController implements Initializable {
       emprestimo.setExemplar(comboExemplarAluno.getSelectionModel().getSelectedItem());
       emprestimo.setLeitor(comboAluno.getSelectionModel().getSelectedItem());
       emprestimo.setDataEmprestimo(LocalDate.now());
+      emprestimo.setDataPrevistaDevolucao(LocalDate.now().plusDays(15));
       daoEmprestimo.inserir(emprestimo);
 
 
@@ -111,6 +112,7 @@ public class EmprestimoController implements Initializable {
       emprestimo.setExemplar(comboExemplarProfessor.getSelectionModel().getSelectedItem());
       emprestimo.setLeitor(comboProfessor.getSelectionModel().getSelectedItem());
       emprestimo.setDataEmprestimo(LocalDate.now());
+      emprestimo.setDataPrevistaDevolucao(LocalDate.now().plusDays(30));
       daoEmprestimo.inserir(emprestimo);
       preencherTabela();
       preencherComboBox();
@@ -119,7 +121,7 @@ public class EmprestimoController implements Initializable {
     @FXML
     private void DevolverEmprestimoClick(ActionEvent event) {
       emprestimo = tableEmprestimo.getSelectionModel().getSelectedItem();
-      //emprestimo.setDataDevolucao(LocalDate.now());
+      emprestimo.setDataDevolucao(LocalDate.now());
       daoEmprestimo.apagar(emprestimo);
       preencherTabela();
   }

@@ -143,10 +143,6 @@ public class ExemplarController implements Initializable {
       List<Exemplar> exemplares = daoExemplar.buscar();
       ObservableList<Exemplar> data = FXCollections.observableArrayList(exemplares);
       lstExemplar.setItems(data);
-
-      List<Livro> livros = daoLivro.buscar();
-      ObservableList<Livro> data1 = FXCollections.observableArrayList(livros);
-      comboLivro.setItems(data1);
     }
 
     private void preencherCombo() {
@@ -157,7 +153,7 @@ public class ExemplarController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      //preencherLista();
+      preencherLista();
       preencherCombo();
       dateAquisicao.setValue(LocalDate.now());
     }    

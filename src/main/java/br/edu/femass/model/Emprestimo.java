@@ -72,9 +72,11 @@ public class Emprestimo {
         this.leitor = leitor;
     }
 
-/*public void setExemplar(Aluno selectedItem) {
+    public Long getId() {
+        return id;
     }
 
-    public void setExemplar(Professor selectedItem) {
-    }*/
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

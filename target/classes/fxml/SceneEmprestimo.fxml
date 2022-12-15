@@ -7,7 +7,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.EmprestimoController">
    <children>
-      <Button fx:id="buttonSalvarAluno" alignment="CENTER" disable="true" layoutX="127.0" layoutY="157.0" mnemonicParsing="false" onAction="#SalvarEmprestimoAlunoClick" prefHeight="32.0" prefWidth="72.0" text="Salvar" textAlignment="CENTER" textFill="#171717">
+      <Button fx:id="buttonSalvarAluno" alignment="CENTER" layoutX="127.0" layoutY="157.0" mnemonicParsing="false" onAction="#SalvarEmprestimoAlunoClick" prefHeight="32.0" prefWidth="72.0" text="Salvar" textAlignment="CENTER" textFill="#171717">
          <font>
             <Font name="Calibri" size="12.0" />
          </font>
@@ -29,8 +29,7 @@
       </Label>
       <ComboBox fx:id="comboProfessor" layoutX="423.0" layoutY="64.0" prefWidth="150.0" />
       <Label fx:id="labelExemplarP" layoutX="334.0" layoutY="111.0" prefHeight="17.0" prefWidth="59.0" text="Exemplar:" />
-      <ComboBox fx:id="comboExemplarProfessor" layoutX="423.0" layoutY="107.0" prefWidth="150.0" />
-      <Button fx:id="buttonSalvarProfessor" alignment="CENTER" disable="true" layoutX="462.0" layoutY="157.0" mnemonicParsing="false" onAction="#SalvarEmprestimoProfessorClick" prefHeight="32.0" prefWidth="72.0" text="Salvar" textAlignment="CENTER" textFill="#171717">
+      <Button fx:id="buttonSalvarProfessor" alignment="CENTER" layoutX="462.0" layoutY="157.0" mnemonicParsing="false" onAction="#SalvarEmprestimoProfessorClick" prefHeight="32.0" prefWidth="72.0" text="Salvar" textAlignment="CENTER" textFill="#171717">
          <font>
             <Font name="Calibri" size="12.0" />
          </font>
@@ -42,16 +41,17 @@
      </Button>
       <TableView fx:id="tableEmprestimo" layoutX="24.0" layoutY="205.0" prefHeight="190.0" prefWidth="550.0">
         <columns>
-          <TableColumn fx:id="colunaExemplar" prefWidth="163.0" text="Exemplar" />
-          <TableColumn fx:id="colunaLeitor" prefWidth="131.0" text="Leitor" />
-            <TableColumn fx:id="colunaDataEmprestimo" prefWidth="130.0" text="Data Empréstimo" />
-            <TableColumn fx:id="colunaPrevisaoDevolucao" prefWidth="125.0" text="Previsão Devolução" />
+          <TableColumn fx:id="colunaExemplar" prefWidth="224.0" text="Exemplar" />
+          <TableColumn fx:id="colunaLeitor" prefWidth="180.0" text="Leitor" />
+            <TableColumn fx:id="colunaDataEmprestimo" prefWidth="74.0" text="Data " />
+            <TableColumn fx:id="colunaPrevisaoDevolucao" prefWidth="71.0" text="Previsão" />
         </columns>
       </TableView>
-      <Button fx:id="buttonDevolver" alignment="CENTER" disable="true" layoutX="393.0" layoutY="409.0" mnemonicParsing="false" onAction="#DevolverEmprestimoClick" prefHeight="32.0" prefWidth="72.0" text="Devolver" textAlignment="CENTER" textFill="#171717">
+      <Button fx:id="buttonDevolver" alignment="CENTER" layoutX="393.0" layoutY="409.0" mnemonicParsing="false" onAction="#DevolverEmprestimoClick" prefHeight="32.0" prefWidth="72.0" text="Devolver" textAlignment="CENTER" textFill="#171717">
          <font>
             <Font name="Calibri" size="12.0" />
          </font>
       </Button>
+      <ComboBox fx:id="comboExemplarProfessor" layoutX="423.0" layoutY="107.0" prefWidth="150.0" />
    </children>
 </Pane>

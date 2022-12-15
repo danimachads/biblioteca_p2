@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import br.edu.femass.dao.DaoAluno;
 import br.edu.femass.dao.DaoEmprestimo;
+import br.edu.femass.dao.DaoExemplar;
 import br.edu.femass.dao.DaoProfessor;
 import br.edu.femass.model.Aluno;
 import br.edu.femass.model.Emprestimo;
@@ -73,23 +74,43 @@ public class EmprestimoController implements Initializable {
     private DaoProfessor daoProfessor = new DaoProfessor();
     private Professor professor;
 
+    private DaoExemplar daoExemplar = new DaoExemplar();
     private Exemplar exemplar;
+
+    //private Leitor leitor;
 
     @FXML
     private void SalvarEmprestimoAlunoClick(ActionEvent event) {
-      aluno = comboAluno.getSelectionModel().getSelectedItem();
+      emprestimo = new Emprestimo();
+      emprestimo.setExemplar(comboExemplarAluno.getSelectionModel().getSelectedItem());
+      emprestimo.setLeitor(comboAluno.getSelectionModel().getSelectedItem());
+      emprestimo.setDataEmprestimo(LocalDate.now());
+      daoEmprestimo.inserir(emprestimo);
+
+
+      /*aluno = comboAluno.getSelectionModel().getSelectedItem();
       exemplar = comboExemplarAluno.getSelectionModel().getSelectedItem();
       emprestimo = new Emprestimo(exemplar, aluno);
-      daoEmprestimo.inserir(emprestimo);
-      preencherTabela();
+      daoEmprestimo.inserir(emprestimo);*/
+
+
+      /*emprestimo.setExemplar(exemplar);
+      emprestimo.setLeitor(leitor);
+      daoEmprestimo.inserir(emprestimo);*/
+      /*leitor = comboAluno.getSelectionModel().getSelectedItem();
+      exemplar = comboExemplarAluno.getSelectionModel().getSelectedItem();
+      emprestimo = new Emprestimo(exemplar, leitor);
+      daoEmprestimo.inserir(emprestimo);*/
       preencherComboBox();
+      preencherTabela();
     }
 
     @FXML
     private void SalvarEmprestimoProfessorClick(ActionEvent event) {
-      professor = comboProfessor.getSelectionModel().getSelectedItem();
-      exemplar = comboExemplarProfessor.getSelectionModel().getSelectedItem();
-      emprestimo = new Emprestimo(exemplar, professor);
+      emprestimo = new Emprestimo();
+      emprestimo.setExemplar(comboExemplarProfessor.getSelectionModel().getSelectedItem());
+      emprestimo.setLeitor(comboProfessor.getSelectionModel().getSelectedItem());
+      emprestimo.setDataEmprestimo(LocalDate.now());
       daoEmprestimo.inserir(emprestimo);
       preencherTabela();
       preencherComboBox();
@@ -98,8 +119,8 @@ public class EmprestimoController implements Initializable {
     @FXML
     private void DevolverEmprestimoClick(ActionEvent event) {
       emprestimo = tableEmprestimo.getSelectionModel().getSelectedItem();
-      emprestimo.setDataDevolucao(LocalDate.now());
-      daoEmprestimo.alterar(emprestimo);
+      //emprestimo.setDataDevolucao(LocalDate.now());
+      daoEmprestimo.apagar(emprestimo);
       preencherTabela();
   }
 
@@ -111,6 +132,12 @@ public class EmprestimoController implements Initializable {
       List<Professor> professores = daoProfessor.buscar();
       ObservableList<Professor> dataProfessor = FXCollections.observableArrayList(professores);
       comboProfessor.setItems(dataProfessor);
+      List<Exemplar> exemplares = daoExemplar.buscar();
+      ObservableList<Exemplar> dataExemplar = FXCollections.observableArrayList(exemplares);
+      comboExemplarAluno.setItems(dataExemplar);
+      List<Exemplar> exemplares2 = daoExemplar.buscar();
+      ObservableList<Exemplar> dataExemplar2 = FXCollections.observableArrayList(exemplares2);
+      comboExemplarProfessor.setItems(dataExemplar2);
     }
 
     private void preencherTabela() {
@@ -126,7 +153,8 @@ public class EmprestimoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      //preencherTabela();
+      emprestimo = new Emprestimo();
+      preencherTabela();
       preencherComboBox();
       colunaExemplar.setCellValueFactory(new PropertyValueFactory<Exemplar, String>("exemplar"));
       colunaLeitor.setCellValueFactory(new PropertyValueFactory<Leitor, String>("leitor"));

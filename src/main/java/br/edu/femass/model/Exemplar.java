@@ -18,6 +18,16 @@ public class Exemplar {
     private String numero;
     private Date dataAquisicao;
 
+    private Boolean disponibilidade;
+
+    public Boolean getDisponibilidade() {
+        return disponibilidade;
+    }
+
+    public void setDisponibilidade(Boolean disponibilidade) {
+        this.disponibilidade = disponibilidade;
+    }
+
     public Exemplar(String numero, Date dataAquisicao) {
         this.dataAquisicao = dataAquisicao;
         this.numero = numero;

@@ -75,7 +75,7 @@ public class EmprestimoController implements Initializable {
     //private Professor professor;
 
     private DaoExemplar daoExemplar = new DaoExemplar();
-    //private Exemplar exemplar;
+    private Exemplar exemplar;
 
     //private Leitor leitor;
 
@@ -113,6 +113,7 @@ public class EmprestimoController implements Initializable {
       emprestimo.setLeitor(comboProfessor.getSelectionModel().getSelectedItem());
       emprestimo.setDataEmprestimo(LocalDate.now());
       emprestimo.setDataPrevistaDevolucao(LocalDate.now().plusDays(30));
+      //exemplar.setDisponibilidade(false);
       daoEmprestimo.inserir(emprestimo);
       preencherTabela();
       preencherComboBox();
@@ -124,7 +125,8 @@ public class EmprestimoController implements Initializable {
       emprestimo.setDataDevolucao(LocalDate.now());
       daoEmprestimo.apagar(emprestimo);
       preencherTabela();
-  }
+    }
+
 
     @FXML
     private void preencherComboBox() {
@@ -162,6 +164,5 @@ public class EmprestimoController implements Initializable {
       colunaLeitor.setCellValueFactory(new PropertyValueFactory<Leitor, String>("leitor"));
       colunaDataEmprestimo.setCellValueFactory(new PropertyValueFactory<Emprestimo, LocalDate>("dataEmprestimo"));
       colunaPrevisaoDevolucao.setCellValueFactory(new PropertyValueFactory<Emprestimo, LocalDate>("dataPrevistaDevolucao"));
-      
     }  
 } 

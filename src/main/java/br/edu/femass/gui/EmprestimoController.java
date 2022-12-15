@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 import br.edu.femass.dao.DaoAluno;
 import br.edu.femass.dao.DaoEmprestimo;
-//import br.edu.femass.dao.DaoExemplar;
 import br.edu.femass.dao.DaoProfessor;
 import br.edu.femass.model.Aluno;
 import br.edu.femass.model.Emprestimo;
@@ -51,7 +50,7 @@ public class EmprestimoController implements Initializable {
     private Button buttonSalvarProfessor;
 
     @FXML
-    private TableView<Emprestimo> tableEmprestimo; //= new TableView<>();
+    private TableView<Emprestimo> tableEmprestimo; 
 
     @FXML
     private TableColumn<Exemplar, String> colunaExemplar;
@@ -74,7 +73,6 @@ public class EmprestimoController implements Initializable {
     private DaoProfessor daoProfessor = new DaoProfessor();
     private Professor professor;
 
-    //private DaoExemplar daoExemplar = new DaoExemplar();
     private Exemplar exemplar;
 
     @FXML
@@ -128,9 +126,8 @@ public class EmprestimoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      preencherTabela();
+      //preencherTabela();
       preencherComboBox();
-      
       colunaExemplar.setCellValueFactory(new PropertyValueFactory<Exemplar, String>("exemplar"));
       colunaLeitor.setCellValueFactory(new PropertyValueFactory<Leitor, String>("leitor"));
       colunaDataEmprestimo.setCellValueFactory(new PropertyValueFactory<Emprestimo, LocalDate>("dataEmprestimo"));

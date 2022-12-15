@@ -1,10 +1,12 @@
 package br.edu.femass.gui;
 import java.net.URL;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 import br.edu.femass.dao.DaoExemplar;
 import br.edu.femass.dao.DaoLivro;
+import br.edu.femass.model.Autor;
 import br.edu.femass.model.Exemplar;
 import br.edu.femass.model.Livro;
 import javafx.collections.FXCollections;
@@ -16,6 +18,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -52,8 +56,6 @@ public class ExemplarController implements Initializable {
     private DaoLivro daoLivro = new DaoLivro();
 
     private DaoExemplar daoExemplar = new DaoExemplar();
-
-    //private Livro livro;
 
     private Exemplar exemplar;
 
@@ -118,6 +120,7 @@ public class ExemplarController implements Initializable {
     }
 
     private void editar(boolean habilitar) {
+      lstExemplar.setDisable(habilitar);
       comboLivro.setDisable(!habilitar);
       dateAquisicao.setDisable(!habilitar);
       txtNumeroExemplar.setDisable(!habilitar);
@@ -129,10 +132,10 @@ public class ExemplarController implements Initializable {
 
     private void exibirDados() {
       this.exemplar = lstExemplar.getSelectionModel().getSelectedItem();
-
       if (exemplar== null) {
         return;
       }
+      txtNumeroExemplar.setText(exemplar.getNumero());
       comboLivro.setValue(exemplar.getLivro());
     }
 
@@ -140,6 +143,10 @@ public class ExemplarController implements Initializable {
       List<Exemplar> exemplares = daoExemplar.buscar();
       ObservableList<Exemplar> data = FXCollections.observableArrayList(exemplares);
       lstExemplar.setItems(data);
+
+      List<Livro> livros = daoLivro.buscar();
+      ObservableList<Livro> data1 = FXCollections.observableArrayList(livros);
+      comboLivro.setItems(data1);
     }
 
     private void preencherCombo() {
@@ -150,7 +157,7 @@ public class ExemplarController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      preencherLista();
+      //preencherLista();
       preencherCombo();
       dateAquisicao.setValue(LocalDate.now());
     }    

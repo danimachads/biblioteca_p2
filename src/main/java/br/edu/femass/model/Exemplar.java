@@ -57,6 +57,6 @@ public class Exemplar {
 
     @Override
     public String toString() {
-        return "Exemplar" + this.getLivro().toString();
+        return "Exemplar Nº" + this.getNumero() + "do Livro" + this.getLivro().toString();
     }
 }

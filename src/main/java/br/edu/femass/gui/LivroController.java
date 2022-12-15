@@ -60,7 +60,6 @@ public class LivroController implements Initializable {
 
     @FXML
     private void SalvarClick(ActionEvent event) {
-      //Autor autor = comboAutor.getSelectionModel().getSelectedItem();
       livro.setTitulo(txtTituloLivro.getText());
       livro.setAutor(comboAutor.getSelectionModel().getSelectedItem());
       if(incluindo) {
@@ -81,7 +80,6 @@ public class LivroController implements Initializable {
       incluindo = true;
       livro = new Livro();
       txtTituloLivro.setText("");
-      //comboAutor.setValue(null);
       txtTituloLivro.requestFocus();
     }
 
